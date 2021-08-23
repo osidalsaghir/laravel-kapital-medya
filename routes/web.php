@@ -16,7 +16,7 @@ use App\Http\Controllers\Api;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', [Api::class, "index"]);
+Route::get('/', function(){return redirect("/users");});
 Route::middleware(['auth:sanctum', 'verified'])->get('/users', [Api::class, "index"]);
 Route::middleware(['auth:sanctum', 'verified'])->get('/users/single/{id}/', [Api::class, "show"]);
 

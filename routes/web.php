@@ -2,7 +2,6 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 use App\Http\Controllers\Api;
 
 
@@ -17,15 +16,7 @@ use App\Http\Controllers\Api;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/users',[Api::class,"index"]);
-Route::middleware(['auth:sanctum', 'verified'])->get('/users/single/{id}/',[Api::class,"show"]);
+Route::middleware(['auth:sanctum', 'verified'])->get('/', [Api::class, "index"]);
+Route::middleware(['auth:sanctum', 'verified'])->get('/users', [Api::class, "index"]);
+Route::middleware(['auth:sanctum', 'verified'])->get('/users/single/{id}/', [Api::class, "show"]);
 

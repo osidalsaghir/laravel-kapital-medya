@@ -6,8 +6,6 @@
 
 
 
-
-
     <div class="row row-cols-1 row-cols-md-4 g-4">
         @foreach ($users['data'] as $user)
             <div class="col">
